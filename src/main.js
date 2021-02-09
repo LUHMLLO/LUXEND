@@ -12,13 +12,14 @@ Vue.mixin({
     return {
       theme: {
         primary_color: "color-baby-powder",
-        primary_background: "bg-grey-darken-4",
+        primary_background: "bg-dark-powder",
         secondary_color: "color-graphite",
+        secondary_background: "bg-grey-darken-4",
         radius: "round-2",
         accent_color: "color-green-accent-3 color-green-accent-4:hover",
         accent_background: "bg-green-accent-3 bg-green-accent-4:hover",
-        highlight_color: "color-white-fade-5",
-        highlight_background: "bg-white-fade-5",
+        highlight_color: "color-white-fade-2",
+        highlight_background: "bg-white-fade-2",
         primary_button:"p-x-10 p-y-10 border-none uppercase font-xs font-medium m-y-15 cursor-pointer text-center",
         secondary_button:"p-x-10 p-y-10 border-none outline uppercase font-xs font-medium m-y-15 cursor-pointer text-center bg-transparent",
         blockquote: "border-l border-white-fade-5 m-0 pl-15 font-sm m-y-15",

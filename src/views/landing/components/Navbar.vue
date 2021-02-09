@@ -1,5 +1,5 @@
 <template>
-  <div class="navbar">
+  <div class="navbar" :class="[theme.secondary_background]">
     <div class="navbar-content container">
       <div class="navbar-section">
         <div class="image-wrapper vw:w-100 overflow-hidden">
@@ -18,7 +18,7 @@
         <router-link to="">
           <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]">Register</button>
         </router-link>
-        <router-link to="">
+        <router-link to="/dashboard">
           <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]">Dashboard</button>
         </router-link>
       </div>

@@ -7,8 +7,12 @@ const routes = [
   {
     path: "/",
     name: "Landing",
-    component: () =>
-      import(/* webpackChunkName: "landing" */ "@/views/landing/Landing.vue")
+    component: () => import(/* webpackChunkName: "landing" */ "@/views/landing/Landing.vue")
+  },
+  {
+    path: "/dashboard",
+    name: "Dashboard",
+    component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Dashboard.vue")
   }
 ];
 
