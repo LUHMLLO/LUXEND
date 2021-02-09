@@ -1,5 +1,5 @@
 <template>
-  <div id="landing" :class="theme.primary_background">
+  <div id="landing">
     <Navbar />
     <Header />
     <Content />
