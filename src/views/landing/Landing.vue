@@ -1,7 +1,7 @@
 <template>
   <div id="landing" :class="theme.primary_background">
-      <Navbar/>
-      <Header/>
+    <Navbar />
+    <Header />
   </div>
 </template>
 
@@ -9,10 +9,8 @@
 export default {
   name: "Landing",
   components: {
-      Navbar: ()=> import('./components/Navbar'),
-      Header: ()=> import('./components/Header'),
-  },
+    Navbar: () => import("./components/Navbar"),
+    Header: () => import("./components/Header")
+  }
 };
 </script>
-
-//70da8f

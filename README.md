@@ -1,4 +1,4 @@
-# luxen2.0
+# luxend2.0
 
 ## Project setup
 ```

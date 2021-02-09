@@ -4,7 +4,7 @@
   </div>
 </template>
 <style>
-a{
+a {
   text-decoration: none !important;
 }
 </style>
