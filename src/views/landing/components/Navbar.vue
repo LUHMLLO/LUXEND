@@ -12,10 +12,10 @@
         <router-link to="" :class="[theme.links, theme.primary_color]"> Contact </router-link>
       </div>
       <div class="navbar-section">
-        <router-link to="">
+        <router-link to="" v-if="false">
           <button :class="[theme.secondary_button, theme.primary_color]">Login</button>
         </router-link>
-        <router-link to="">
+        <router-link to="" v-if="false">
           <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]">Register</button>
         </router-link>
         <router-link to="/dashboard">

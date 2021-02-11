@@ -9,10 +9,20 @@
             <button :class="[theme.primary_button, theme.radius, theme.accent_background, theme.primary_color]">Start building your own kitchen</button>
           </div>
           <div class="col-6 md:col-12">
-            <div class="p-50 w-100 h-100" :class="[theme.radius, theme.highlight_background]" />
+            <div class="w-100 height-400 overflow-hidden" :class="[theme.radius, theme.highlight_background]">
+              <VideoPlayer class="z-index-11" />
+            </div>
           </div>
         </div>
       </div>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  components: {
+    VideoPlayer: () => import("@/components/VideoPlayer")
+  }
+};
+</script>
