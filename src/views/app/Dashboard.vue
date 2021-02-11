@@ -3,7 +3,7 @@
     <section class="d-flex justify-between content-center">
       <i class="uil uil-moon" :class="[theme.accent_color]" />
       <div class="d-flex">
-        <h6 class="mr-10">Mr.Melo</h6>
+        <h6 class="mr-10">Mr.Nickname</h6>
         <div class="avatar">
           <div class="image-wrapper depth-1 round-12">
             <img src="@/assets/avatar.png" />
@@ -19,10 +19,10 @@
     <section>
       <h6 class="mb-10" :class="[theme.highlight_color]">Proyectos pendientes por aprobar</h6>
       <div class="row">
-        <div class="width-300 p-16 d-inline-flex content-center" :class="[theme.secondary_background, theme.radius]">
-          <div class="width-100 overflow-hidden" :class="[theme.radius]">
-            <div class="image-wrapper">
-              <img src="https://luxend.s3.us-east-2.amazonaws.com/kyle_jewell_qbc_E_Or_27z_M_unsplash_606befa570.jpg" alt="" />
+        <div class="width-500 p-16 d-inline-flex content-center" :class="[theme.secondary_background, theme.radius]">
+          <div class="width-300 height-200 overflow-hidden" :class="[theme.radius]">
+            <div class="image-wrapper h-100">
+              <img src="@/assets/demo.png" alt="" />
             </div>
           </div>
           <div class="d-flex flex-column ml-16">
