@@ -10,7 +10,9 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "mindesignsystem": "0.0.54",
+    "postprocessing": "^6.20.3",
     "register-service-worker": "^1.7.1",
+    "three": "^0.125.2",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
     "vuex": "^3.4.0"
