@@ -3,7 +3,7 @@
     <div class="navbar-content container">
       <div class="navbar-section">
         <div class="image-wrapper vw:w-100 overflow-hidden">
-          <img src="https://luxend.netlify.app/img/luxend-logo.483681d8.png" alt="" />
+          <img src="@/assets/logo-large.png" alt="" />
         </div>
       </div>
       <div class="navbar-section justify-end">

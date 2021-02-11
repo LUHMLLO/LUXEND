@@ -2,7 +2,7 @@
   <div class="sidebar" :class="[theme.secondary_background, theme.primary_color]">
     <div class="sidebar-content">
       <div class="sidebar-section">
-        <div class="image-wrapper p-16">
+        <div class="image-wrapper p-y-45 p-x-10">
           <img src="@/assets/logo.png" />
         </div>
         <router-link :to="'/'+route.name" v-for="(route, index) in RoutesOnSidebar" :key="index">
@@ -32,8 +32,8 @@ export default {
           icon: "uil uil-paint-tool"
         },
         {
-          name: "Settings",
-          icon: "uil uil-settings"
+          name: "Payments",
+          icon: "uil uil-wallet"
         }
       ]
     };
