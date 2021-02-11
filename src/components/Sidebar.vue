@@ -8,7 +8,7 @@
         <router-link :to="'/'+route.name" v-for="(route, index) in RoutesOnSidebar" :key="index">
           <div class="w-100 p-relative p-16 d-flex justify-center content-center text-center tooltip-wrapper" :class="[theme.primary_color]">
             <i class="font-xl m-auto toggle cursor-pointer" :class="route.icon"/>
-            <span class="tooltip font-xs right offset-l-16 tangible m-y-auto p-5" v-html="route.name" />
+            <span class="tooltip font-xs right offset-l-16 tangible m-y-auto p-5 z-index-11" :class="[theme.radius,theme.secondary_background]" v-html="route.name" />
           </div>
         </router-link>
       </div>
