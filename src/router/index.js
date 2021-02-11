@@ -13,6 +13,11 @@ const routes = [
     path: "/dashboard",
     name: "Dashboard",
     component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Dashboard.vue")
+  },
+  {
+    path: "/builder",
+    name: "Builder",
+    component: () => import(/* webpackChunkName: "builder" */ "@/views/app/Builder.vue")
   }
 ];
 
