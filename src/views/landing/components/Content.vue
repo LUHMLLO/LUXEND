@@ -12,7 +12,7 @@
     <section>
       <h1 class="font-lg mb-0">Hello World</h1>
       <small class="font-sm">@luxend official web page</small>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sit laudantium dolor atque maiores eveniet ducimus, molestias natus, sequi non nesciunt? Maiores iure praesentium debitis dolorum fugiat laudantium libero deleniti.</p>
+      <p class="font-base">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sit laudantium dolor atque maiores eveniet ducimus, molestias natus, sequi non nesciunt? Maiores iure praesentium debitis dolorum fugiat laudantium libero deleniti.</p>
     </section>
 
     <section>
