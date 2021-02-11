@@ -1,19 +1,25 @@
 <template>
-  <component :is="active_layout"  :class="theme.primary_background">
-    <div id="app">
-      <router-view />
-    </div>
+  <component id="app" :is="setLayout" :class="theme.primary_background">
+    <router-view />
   </component>
 </template>
 
 <script>
-import app_layout from "@/layouts/app_layout"
+import app_layout from "@/layouts/app_layout";
 export default {
   name: "App",
   data() {
     return {
       active_layout: app_layout
     };
+  },
+  computed: {
+    setLayout() {
+      if (this.$route.name == "Landing") {
+        return "div";
+      }
+      return this.active_layout;
+    }
   }
 };
 </script>
