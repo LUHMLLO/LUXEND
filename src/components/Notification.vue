@@ -15,7 +15,7 @@
       </div>
       <h6 class="mt-10 d-block font-md mb-0" v-html="Notification.Title"></h6>
       <p class="font-xs mb-0" v-html="Notification.Description" />
-      <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]">{{ Notification.Button }}</button>
+      <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]" @pointerdown.stop="refreshApp">{{ Notification.Button }}</button>
       <!------------------------------------------------->
     </div>
     <!------------------------------------------------->
