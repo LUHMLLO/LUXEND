@@ -9,8 +9,8 @@
       </div>
     </section>
 
-    <section>
-      <h1 class="font-lg mb-0">LUXEND</h1>
+    <section class="pt-50 pb-10">
+      <h1 class="font-xl mb-0">LUXEND</h1>
       <a href="https://www.instagram.com/luxend.rd/" target="blank" class="font-sm" :class="[theme.accent_color]">@luxend.rd</a>
       <p class="font-base">Nos encargamos de la fabricación de los productos arquitectónicos mas exclusivos para los espacios más elegantes y lujosos.</p>
       <p class="font-base">
@@ -22,7 +22,7 @@
     <section>
       <Slider class="wide">
         <div class="slide p-relative" v-for="(image, index) in 5" :key="index">
-          <div class="vw:w-300 vw:h-200 overflow-hidden" :class="[theme.radius, theme.highlight_background]">
+          <div class="vw:w-381 vw:h-200 overflow-hidden" :class="[theme.radius, theme.highlight_background]">
             <div class="image-wrapper h-100">
               <img src="@/assets/ModularKitchen.jpg" alt="" />
             </div>
@@ -31,12 +31,38 @@
       </Slider>
     </section>
     <!------------------------------------------------->
-    <section>
-      <p class="font-base">
-        Nos especializamos en crear y nos regimos por los más altos estándares internacionales en pa prevención y seguridad estructural, así como de cada uno de los componentes, logrando calidad,
-        eficiencia y precisión para asegurar la inversión de nuestros clientes.
-      </p>
+    <section class="p-y-50">
+      <div class="row offset-x-16">
+        <!------------------------------------------------->
+        <div class="col-6">
+          <h6 class="mt-0 mb-10" :class="[theme.highlight_color]">Mision</h6>
+          <p class="font-base mb-0">
+              Nos especializamos en crear y nos regimos por los más altos estándares internacionales en pa prevención y seguridad estructural, así como de cada uno de los componentes, logrando
+              calidad, eficiencia y precisión para asegurar la inversión de nuestros clientes.
+          </p>
+        </div>
+        <!------------------------------------------------->
+        <div class="col-6">
+          <h6 class="mt-0 mb-10" :class="[theme.highlight_color]">Mision</h6>
+          <p class="font-base mb-0">
+            Abarcar el mercado con estándares de calidad, prevención y seguridad, proporcionando un servicio con tecnología de Vanguardia que nos permite exhibir que somos una empresa fielmente
+            comprometida con la excelencia.
+          </p>
+        </div>
+        <!------------------------------------------------->
+        <div class="col-6">
+          <h6 class="mt-0 mb-10" :class="[theme.highlight_color]">Vision</h6>
+          <p class="font-base mb-0">Ser reconocidos como empresa de gama alta líder en innovación y confianza en todo lo que hacemos.</p>
+        </div>
+        <!------------------------------------------------->
+        <div class="col-6">
+          <h6 class="mt-0 mb-10" :class="[theme.highlight_color]">Valores</h6>
+          <p class="font-base mb-0">Nos distingue el trato genuino y personalizado, la delicadeza y el buen servicio con responsabilidad.</p>
+        </div>
+        <!------------------------------------------------->
+      </div>
     </section>
+    <!------------------------------------------------->
   </div>
 </template>
 
