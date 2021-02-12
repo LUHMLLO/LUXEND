@@ -34,7 +34,7 @@ export default {
     };
   },
   methods: {
-    playVideo: function () {
+    playVideo() {
       this.isPlaying = !this.isPlaying;
     }
   }

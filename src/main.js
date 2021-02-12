@@ -23,7 +23,7 @@ Vue.mixin({
         highlight_background: "bg-white-fade-3",
         primary_button:"p-x-10 p-y-10 border-none uppercase font-xs font-medium m-y-15 cursor-pointer text-center",
         secondary_button:"p-x-10 p-y-10 border-none outline uppercase font-xs font-medium m-y-15 cursor-pointer text-center bg-transparent",
-        blockquote: "border-l border-white-fade-5 m-0 pl-15 font-sm m-y-15",
+        blockquote: "border-l border-white-fade-5 m-0 pl-15 font-sm m-y-15 p-y-10",
         links:"p-x-5 font-xs uppercase font-medium justify-center align-center text-center cursor-pointer"
       }
     };
