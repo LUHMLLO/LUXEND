@@ -296,23 +296,23 @@ export default {
                 });
             }
           });
-                //console.log(self.model_children)
-                // Function - Add the textures to the models
-                function initColor(parent, type, mtl) {
-                    parent.traverse((o) => {
-                        if (o.isMesh) {
-                            if (o.name.includes(type)) {
-                                o.material = mtl;
-                                o.nameID = type; // Set a new property to identify this object
-                            }
-                        }
-                    });
+          //console.log(self.model_children)
+          // Function - Add the textures to the models
+          function initColor(parent, type, mtl) {
+            parent.traverse((o) => {
+              if (o.isMesh) {
+                if (o.name.includes(type)) {
+                  o.material = mtl;
+                  o.nameID = type; // Set a new property to identify this object
                 }
+              }
+            });
+          }
 
-                // Set initial textures
-                for (let object of self.model_children) {
-                    initColor(self.model, object.childID, object.mtl);
-                }
+          // Set initial textures
+          for (let object of self.model_children) {
+            initColor(self.model, object.childID, object.mtl);
+          }
 
           self.scene.add(self.model);
         },
@@ -342,7 +342,7 @@ export default {
         map: new_texture,
         shininess: this.selected_material.shininess ? this.selected_material.shininess : 10
       });
-      console.log(this.new_material)
+      console.log(this.new_material);
 
       this.set_material(this.model, this.active_child, this.new_material);
     },
@@ -353,7 +353,7 @@ export default {
         color: parseInt("0x" + this.selected_material),
         shininess: this.selected_material.shininess ? this.selected_material.shininess : 10
       });
-      console.log(this.new_material)
+      console.log(this.new_material);
 
       this.set_material(this.model, this.active_child, this.new_material);
     },
@@ -361,9 +361,9 @@ export default {
     set_material: function (parent, type, mtl) {
       parent.traverse((o) => {
         if (o.isMesh && o.nameID != null) {
-            console.log(o)
+          console.log(o);
           if (o.nameID == type) {
-              console.log(o.material)
+            console.log(o.material);
             o.material = mtl;
           }
         }
