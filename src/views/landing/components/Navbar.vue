@@ -7,9 +7,9 @@
         </div>
       </div>
       <div class="navbar-section justify-end">
-        <router-link to="" :class="[theme.links, theme.primary_color]"> Home </router-link>
+        <router-link to="" :class="[theme.links, theme.primary_color]"> Inicio </router-link>
         <router-link to="" :class="[theme.links, theme.primary_color]"> Blog </router-link>
-        <router-link to="" :class="[theme.links, theme.primary_color]"> Contact </router-link>
+        <router-link to="" :class="[theme.links, theme.primary_color]"> Contacto </router-link>
       </div>
       <div class="navbar-section">
         <router-link to="" v-if="false">
