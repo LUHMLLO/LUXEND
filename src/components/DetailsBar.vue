@@ -1,0 +1,8 @@
+<template>
+  <div class="h-100 w-100 p-16 overflow-hidden" :class="[theme.radius, theme.secondary_background, theme.primary_color]">
+    <section>
+      <h6 class="mb-10">Menu con datos importantes</h6>
+      <small class="font-sm">o algo asi, aun le estoy buscando proposito</small>
+    </section>
+  </div>
+</template>

@@ -4,10 +4,12 @@
       <Sidebar />
     </div>
     <div class="w-0 flex-grow-1 flex-shrink-0 vh:h-1000 overflow-hidden overflow-y-scroll scrollbar-none">
-      <div class="w-100 pb-50" :class="builderMode">
-        <Navbar :class="hideNavbar" />
+      <div class="w-100" :class="builderMode">
         <slot />
       </div>
+    </div>
+    <div class="width-400 flex-grow-0 flex-shrink-1 vh:h-1000 p-16 overflow-hidden" :class="HideDetailsBar">
+      <DetailsBar />
     </div>
   </div>
 </template>
@@ -17,10 +19,10 @@ export default {
   name: "app_layout",
   components: {
     Sidebar: () => import("@/components/Sidebar"),
-    Navbar: () => import("@/components/Navbar")
+    DetailsBar: () => import("@/components/DetailsBar")
   },
   computed: {
-    hideNavbar() {
+    HideDetailsBar() {
       return {
         "d-none": this.$route.name == "Builder"
       };
