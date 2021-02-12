@@ -1,6 +1,7 @@
 <template>
   <component id="app" :is="setLayout" :class="theme.primary_background">
     <router-view />
+    <Notification />
   </component>
 </template>
 
@@ -8,6 +9,9 @@
 import app_layout from "@/layouts/app_layout";
 export default {
   name: "App",
+  components: {
+    Notification: () => import("@/components/Notification")
+  },
   data() {
     return {
       active_layout: app_layout
