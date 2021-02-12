@@ -1,5 +1,5 @@
 <template>
-  <div id="landing">
+  <div id="landing" class="vh:h-1000 overflow-hidden overflow-y-scroll scrollbar-none">
     <Navbar />
     <Header />
     <Content />
