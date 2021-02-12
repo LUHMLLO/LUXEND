@@ -24,7 +24,7 @@ export default {
   computed: {
     HideDetailsBar() {
       return {
-        "d-none": this.$route.name == "Builder"
+        "d-none": this.$route.name !== "Payments"
       };
     },
     builderMode() {
