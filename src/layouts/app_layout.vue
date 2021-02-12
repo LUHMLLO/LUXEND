@@ -20,12 +20,12 @@ export default {
     Navbar: () => import("@/components/Navbar")
   },
   computed: {
-    hideNavbar: function () {
+    hideNavbar() {
       return {
         "d-none": this.$route.name == "Builder"
       };
     },
-    builderMode: function () {
+    builderMode() {
       return {
         "container p-y-50": this.$route.name !== "Builder"
       };

@@ -14,7 +14,7 @@
                 <h6 class="mb-5 font-sm mt-0">Opciones</h6>
                 <div class="row w-100">
                     <div class="col-6 flex-grow-1 flex-shrink-0 p-1 d-inline-flex content-center justify-center overflow-hidden" v-for="(child,index) in computed_childs" :key="index">
-                        <button class="w-100 font-sm m-0 height-50 border border-white-fade-1 cursor-pointer" :class="[theme.primary_color,theme.secondary_background,theme.radius]">
+                        <button class="w-100" :class="[theme.button,theme.primary_color,theme.secondary_background,theme.radius]">
                             {{child.childID}}
                         </button>
                     </div>
@@ -24,7 +24,7 @@
                 <h6 class="mb-5 font-sm mt-0">Texturas</h6>
                 <div class="row w-100">
                     <div class="col-3 flex-grow-1 p-1 d-inline-flex content-center justify-center overflow-hidden" v-for="(material,index) in material_textures" :key="index">
-                        <button class="border border-white-fade-1 cursor-pointer w-100 height-50 overflow-hidden" :class="[theme.radius]" :style="[{'background' : 'url('+material.texture+')'}]"/>
+                        <button class="w-100" :class="[theme.button,theme.radius]" :style="[{'background' : 'url('+material.texture+')'}]"/>
                     </div>
                 </div>
             </section>
@@ -32,7 +32,7 @@
                 <h6 class="mb-5 font-sm mt-0">Colores</h6>
                 <div class="row w-100">
                     <div class="col-3 flex-grow-1 p-1 d-inline-flex content-center justify-center overflow-hidden" v-for="(material,index) in material_colors" :key="index">
-                        <button class="border border-white-fade-1 cursor-pointer w-100 height-50 overflow-hidden" :class="[theme.radius]" :style="[{'background' : '#'+material.color}]"/>
+                        <button class="w-100" :class="[theme.button,theme.radius]" :style="[{'background' : '#'+material.color}]"/>
                     </div>
                 </div>
             </section>

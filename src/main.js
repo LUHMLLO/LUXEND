@@ -16,6 +16,7 @@ Vue.mixin({
         secondary_color: "color-graphite",
         secondary_background: "bg-grey-darken-4",
         radius: "round-2",
+        button: "font-sm m-0 height-50 border border-white-fade-1 cursor-pointer",
         accent_color: "color-green-accent-3 color-green-accent-4:hover",
         accent_background: "bg-green-accent-3 bg-green-accent-4:hover",
         highlight_color: "color-white-fade-3",
