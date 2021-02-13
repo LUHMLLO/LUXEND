@@ -1,20 +1,20 @@
 <template>
-  <div class="width-300 p-16 p-fixed bottom right z-index-11 transition" :class="[ShowOrHide ? 'opacity-100' : 'opacity-0 hidden']">
+  <div class="width-300 sm:w-100 p-16 p-fixed bottom right z-index-11 transition" :class="[ShowOrHide ? 'opacity-100' : 'opacity-0 hidden']">
     <!------------------------------------------------->
     <div class="p-16 w-100 d-flex flex-column border" :class="[theme.secondary_background, theme.primary_color, theme.radius]">
       <!------------------------------------------------->
-      <div class="d-flex">
-        <div class="overflow-hidden width-25 height-25 mr-10" :class="[theme.radius]">
+      <div class="d-flex content-center justify-start">
+        <div class="overflow-hidden width-25 sm:width-50 height-25 sm:height-50 mr-10" :class="[theme.radius]">
           <div class="image-wrapper h-100">
             <img src="@/assets/logo.png" alt="logo" />
           </div>
         </div>
-        <div class="d-block mt-0">
-          <label class="d-inline-block text-center p-x-10 p-y-5 font-xs" :class="[theme.primary_color, theme.highlight_background, theme.radius]" v-html="Notification.Status" />
+        <div class="d-block m-y-auto ml-0">
+          <label class="d-inline-block text-center p-x-10 p-y-5 font-xs sm:font-sm" :class="[theme.primary_color, theme.highlight_background, theme.radius]" v-html="Notification.Status" />
         </div>
       </div>
-      <h6 class="mt-10 d-block font-md mb-0" v-html="Notification.Title"></h6>
-      <p class="font-xs mb-0" v-html="Notification.Description" />
+      <h6 class="mt-10 d-block font-md sm:font-base mb-0" v-html="Notification.Title"></h6>
+      <p class="font-xs sm:font-sm mb-0" v-html="Notification.Description" />
       <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]" @pointerdown.stop="refreshApp">{{ Notification.Button }}</button>
       <!------------------------------------------------->
     </div>

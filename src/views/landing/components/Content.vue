@@ -10,7 +10,7 @@
     </section>
 
     <section class="pt-50 pb-10">
-      <h1 class="font-xl mb-0">LUXEND</h1>
+      <h1 class="font-xl mb-0 sm:font-2xl">LUXEND</h1>
       <div class="d-inline-flex content-center" :class="[theme.accent_color]">
         <i class="uil uil-instagram ml-0 m-y-auto font-sm " />
         <a href="https://www.instagram.com/luxend.rd/" target="blank" class="font-sm ml-0 m-y-auto">luxend.rd</a>
@@ -25,7 +25,7 @@
     <section>
       <Slider class="wide">
         <div class="slide p-relative" v-for="(image, index) in 5" :key="index">
-          <div class="vw:w-381 vw:h-200 overflow-hidden" :class="[theme.radius, theme.highlight_background]">
+          <div class="width-400 height-250 overflow-hidden" :class="[theme.radius, theme.highlight_background]">
             <div class="image-wrapper h-100">
               <img src="@/assets/ModularKitchen.jpg" alt="" />
             </div>
@@ -37,7 +37,7 @@
     <section class="p-y-50">
       <div class="row offset-x-16">
         <!------------------------------------------------->
-        <div class="col-6">
+        <div class="col-6 sm:col-12">
           <h6 class="mt-0 mb-10" :class="[theme.accent_color]">Especialidad</h6>
           <p class="font-base mb-0">
             Nos especializamos en crear y nos regimos por los más altos estándares internacionales para la prevención y seguridad estructural, así como de cada uno de los componentes, logrando
@@ -45,7 +45,7 @@
           </p>
         </div>
         <!------------------------------------------------->
-        <div class="col-6">
+        <div class="col-6 sm:col-12">
           <h6 class="mt-0 mb-10" :class="[theme.accent_color]">Mision</h6>
           <p class="font-base mb-0">
             Abarcar el mercado con estándares de calidad, prevención y seguridad, proporcionando un servicio con tecnología de Vanguardia que nos permite exhibir que somos una empresa fielmente

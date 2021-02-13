@@ -12,15 +12,9 @@
         <router-link to="" :class="[theme.links, theme.primary_color]"> Contacto </router-link>
       </div>
       <div class="navbar-section">
-        <router-link to="" v-if="false">
-          <button :class="[theme.secondary_button, theme.primary_color]">Login</button>
-        </router-link>
-        <router-link to="" v-if="false">
-          <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]">Register</button>
-        </router-link>
-        <router-link to="/dashboard">
-          <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]">Dashboard</button>
-        </router-link>
+        <router-link to="" :class="[theme.secondary_button, theme.primary_color]" v-if="false">Login</router-link>
+        <router-link to="" :class="[theme.radius,theme.primary_button, theme.accent_background, theme.primary_color]" v-if="false">Register</router-link>
+        <router-link to="/dashboard" :class="[theme.radius,theme.primary_button, theme.accent_background, theme.primary_color]" v-if="true">Dashboard</router-link>
       </div>
     </div>
   </div>
