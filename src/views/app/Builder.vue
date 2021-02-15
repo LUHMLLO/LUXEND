@@ -325,7 +325,7 @@ export default {
 
     select_option: function (child) {
       this.active_child = child.childID;
-      console.log(this.active_child);
+      //console.log(this.active_child);
     },
 
     select_material_texture: function (material) {
@@ -359,9 +359,9 @@ export default {
     set_material: function (parent, type, mtl) {
       parent.traverse((o) => {
         if (o.isMesh && o.nameID != null) {
-          console.log(o);
+          //console.log(o);
           if (o.nameID == type) {
-            console.log(o.material);
+            //console.log(o.material);
             o.material = mtl;
           }
         }

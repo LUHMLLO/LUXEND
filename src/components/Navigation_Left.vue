@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" :class="[theme.secondary_background, theme.primary_color]">
+  <div class="sidebar p-fixed top left width-50" :class="[theme.secondary_background, theme.primary_color]">
     <div class="sidebar-content">
       <div class="sidebar-section">
         <div class="image-wrapper pt-16 p-x-10">
@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="sidebar-section">
-        <router-link :to="'/' + route.name" v-for="(route, index) in RoutesOnSidebar" :key="index">
+        <router-link :to="'/' + route.name" v-for="(route, index) in Routes" :key="index">
           <div class="w-100 p-relative p-16 d-flex justify-center content-center text-center tooltip-wrapper" :class="[theme.primary_color]">
             <i class="font-xl m-auto toggle cursor-pointer" :class="route.icon" />
             <span class="tooltip font-xs right offset-l-16 tangible m-y-auto p-5 z-index-11" :class="[theme.radius, theme.secondary_background]" v-html="route.name" />
@@ -25,31 +25,11 @@
 </template>
 
 <script>
+import Utils_Routes from "../utils/routesForNavigation";
 export default {
   data() {
     return {
-      RoutesOnSidebar: [
-        {
-          name: "Dashboard",
-          icon: "uil uil-create-dashboard"
-        },
-        {
-          name: "Builder",
-          icon: "uil uil-paint-tool"
-        },
-        {
-          name: "Payments",
-          icon: "uil uil-wallet"
-        },
-        {
-          name: "Profile",
-          icon: "uil uil-user-circle"
-        },
-        {
-          name: "Settings",
-          icon: "uil uil-setting"
-        }
-      ]
+      Routes: Utils_Routes
     };
   }
 };

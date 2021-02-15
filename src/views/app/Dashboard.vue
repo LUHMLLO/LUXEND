@@ -8,14 +8,14 @@
     <section>
       <h6 class="mb-10" :class="[theme.highlight_color]">Proyectos pendientes por aprobar</h6>
       <div class="row">
-        <DashboardCard />
+        <DashboardCard class="sm:w-100" />
       </div>
     </section>
 
     <section>
       <h6 class="mb-10" :class="[theme.highlight_color]">Proyectos aprobados</h6>
       <div class="row">
-        <DashboardCard IMGwidth="width-100" IMGheight="height-100" v-bind:CardDescription="false" />
+        <DashboardCard IMGwidth="width-100" IMGheight="height-100" v-bind:CardDescription="false" class="sm:w-100" />
       </div>
     </section>
 

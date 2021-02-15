@@ -1,18 +1,15 @@
 <template>
-  <div class="navbar">
-    <div class="navbar-content">
+  <div class="navbar p-fixed top left" :class="[theme.secondary_background]">
+    <div class="navbar-content p-16">
       <div class="navbar-section">
-        <i class="uil uil-moon" :class="[theme.accent_color]" />
-      </div>
-      <div class="navbar-section">
-        <div class="d-flex">
-          <h6 class="mr-10 m-y-auto" :class="theme.primary_color">Mr.Nickname</h6>
-          <div class="avatar m-y-auto">
-            <div class="image-wrapper depth-1 round-12">
-              <img src="@/assets/avatar.png" />
-            </div>
+        <div class="width-30">
+          <div class="image-wrapper overflow-hidden">
+            <img src="@/assets/logo.png" alt="" />
           </div>
         </div>
+      </div>
+      <div class="navbar-section">
+        <h6 class="m-0 uppercase" :class="[theme.primary_color]">LUXEND platform</h6>
       </div>
     </div>
   </div>

@@ -10,7 +10,10 @@
         <label class="d-inline-block text-center p-x-10 p-y-5 font-xs" :class="[theme.primary_color, theme.highlight_background, theme.radius]">status</label>
       </div>
       <h6 class="mt-10 d-block font-md" :class="[CardDescription ? 'mb-0' : 'mb-5']">kitchen model 06</h6>
-      <p class="font-xs" v-if="CardDescription">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex at omnis vero repudiandae dignissimos, modi nisi. Sit modi, fugiat minus ipsum odit non. Amet adipisci, dolorem cupiditate recusandae quis molestiae.</p>
+      <p class="font-xs" v-if="CardDescription">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex at omnis vero repudiandae dignissimos, modi nisi. Sit modi, fugiat minus ipsum odit non. Amet adipisci, dolorem cupiditate
+        recusandae quis molestiae.
+      </p>
       <small class="d-block font-xs mb-0">Solicitado: 21/01/2021</small>
       <div>
         <div class="tooltip-wrapper p-relative d-inline-block cursor-pointer">
@@ -27,7 +30,7 @@ export default {
   props: {
     IMGwidth: {
       type: String,
-      default: "width-270"
+      default: "width-270 sm:width-200"
     },
     IMGheight: {
       type: String,
