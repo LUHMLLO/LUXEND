@@ -9,7 +9,7 @@
               <header class="font-sm sm:font-md mb-5 sm:mb-10" v-html="blockquoteHeader" />
               <footer class="font-xs sm:font-sm uppercase" v-html="'-Luxend'" />
             </blockquote>
-            <button :class="[theme.primary_button, theme.radius, theme.accent_background, theme.primary_color]">materializa tus ideas</button>
+            <router-link to="/builder" :class="[theme.primary_button, theme.radius, theme.accent_background, theme.primary_color]">materializa tus ideas</router-link>
           </div>
           <div class="col-6 md:col-12">
             <div class="w-100 height-400 overflow-hidden" :class="[theme.radius, theme.highlight_background]">
