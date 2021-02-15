@@ -337,7 +337,7 @@ export default {
       new_texture.repeat.set(this.selected_material_size[0], this.selected_material_size[1], this.selected_material_size[2]);
       new_texture.wrapS = THREE.RepeatWrapping;
       new_texture.wrapT = THREE.RepeatWrapping;
-      new_texture.encoding = THREE.sRGBEncoding
+      new_texture.encoding = THREE.sRGBEncoding;
 
       this.new_material = new THREE.MeshPhongMaterial({
         map: new_texture,
@@ -352,7 +352,7 @@ export default {
         color: parseInt("0x" + this.selected_material),
         shininess: this.selected_material.shininess ? this.selected_material.shininess : 10
       });
-      this.new_material.encoding = THREE.RGBEncoding;
+      this.new_material.encoding = THREE.sRGBEncoding;
       this.set_material(this.model, this.active_child, this.new_material);
     },
 
@@ -418,7 +418,7 @@ export default {
     },
 
     onKeyDown: function (event) {
-      const step = 0.5; // world units
+      const step = 0.01; // world units
 
       switch (event.keyCode) {
         case 37:
