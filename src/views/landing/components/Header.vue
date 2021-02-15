@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row offset-x-16">
           <div class="col-6 md:col-8 sm:col-10 xs:col-12">
-            <h1 class="font-4xl xs:font-2xl uppercase" v-html="landingHeaderTitle" />
+            <h1 class="font-4xl sm:font-3xl xs:font-2xl uppercase" v-html="landingHeaderTitle" />
             <blockquote :class="[theme.blockquote]">
               <header class="font-sm sm:font-md mb-5 sm:mb-10" v-html="blockquoteHeader" />
               <footer class="font-xs sm:font-sm uppercase" v-html="'-Luxend'" />
