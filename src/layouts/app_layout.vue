@@ -1,7 +1,7 @@
 <template>
   <div id="app_layout" class="vh:h-1000 overflow-hidden overflow-y-scroll overscroll-contain sm:p-y-50">
     <Navbar class="d-none sm:d-flex" />
-    <div class="container pb-50">
+    <div class="pb-50" :class="[builderMode]">
       <slot />
     </div>
     <NavigationLeft class="sm:d-none" />
@@ -20,7 +20,7 @@ export default {
   computed: {
     builderMode() {
       return {
-        "container p-y-50": this.$route.name !== "Builder"
+        " container ": this.$route.name !== "Builder"
       };
     }
   }
