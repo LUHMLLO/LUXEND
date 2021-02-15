@@ -13,10 +13,10 @@
       </div>
     </div>
 
-    <div class="p-fixed top left w-100 vh:h-1000 z-index-11 content-center items-center d-flex flex-column justify-between p-y-50" :class="[theme.primary_background]" v-if="SidebarStatus">
-      <button
-        class="uil uil-multiply d-inline-block width-50 bg-transparent p-absolute top right mt-0 mr-0"
-        :class="[theme.radius, theme.primary_button, theme.primary_color]"
+    <div class="p-fixed top left w-100 vh:h-1000 z-index-11 content-center items-center d-flex flex-column justify-center p-y-50" :class="[theme.primary_background]" v-if="SidebarStatus">
+      <i
+        class="uil uil-multiply d-inline-block width-50 bg-transparent p-absolute top right mt-20 mr-10 font-2xl"
+        :class="[theme.radius, theme.primary_color]"
         @pointerdown="SidebarStatus = !SidebarStatus"
       />
       <router-link to="" :class="[theme.links, theme.primary_color]"> Inicio </router-link>
