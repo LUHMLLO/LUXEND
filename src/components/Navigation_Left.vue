@@ -7,9 +7,9 @@
         </div>
       </div>
       <div class="sidebar-section">
-        <router-link :to="'/' + route.name" v-for="(route, index) in Routes" :key="index">
+        <router-link :to="'/' + route.name" v-for="(route, index) in NewRouteList" :key="index">
           <div class="w-100 p-relative p-16 d-flex justify-center content-center text-center tooltip-wrapper" :class="[theme.primary_color]">
-            <i class="font-xl m-auto toggle cursor-pointer" :class="route.icon" />
+            <i class="font-xl m-auto toggle cursor-pointer" :class="route.meta.icon" />
             <span class="tooltip font-xs right offset-l-16 tangible m-y-auto p-5 z-index-11" :class="[theme.radius, theme.secondary_background]" v-html="route.name" />
           </div>
         </router-link>
@@ -25,12 +25,21 @@
 </template>
 
 <script>
-import Utils_Routes from "../utils/routesForNavigation";
 export default {
-  data() {
-    return {
-      Routes: Utils_Routes
-    };
+  computed: {
+    NewRouteList() {
+      let New_Route = [];
+      this.$router.options.routes.forEach(route => {
+        switch (route.name) {
+          case "Landing":
+            break;
+          default:
+            New_Route.push({ path: route.path, name: route.name, meta: route.meta });
+            break;
+        }
+      });
+      return New_Route;
+    }
   }
 };
 </script>

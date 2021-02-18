@@ -12,17 +12,42 @@ const routes = [
   {
     path: "/dashboard",
     name: "Dashboard",
-    component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Dashboard.vue")
-  },
-  {
-    path: "/payments",
-    name: "Payments",
-    component: () => import(/* webpackChunkName: "payments" */ "@/views/app/Payments.vue")
+    component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Dashboard.vue"),
+    meta: {
+      icon: "uil uil-create-dashboard"
+    }
   },
   {
     path: "/builder",
     name: "Builder",
-    component: () => import(/* webpackChunkName: "builder" */ "@/views/app/Builder.vue")
+    component: () => import(/* webpackChunkName: "builder" */ "@/views/app/Builder.vue"),
+    meta: {
+      icon: "uil uil-paint-tool"
+    }
+  },
+  {
+    path: "/payments",
+    name: "Payments",
+    component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Payments.vue"),
+    meta: {
+      icon: "uil uil-wallet"
+    }
+  },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Payments.vue"),
+    meta: {
+      icon: "uil uil-user-circle"
+    }
+  },
+  {
+    path: "/settings",
+    name: "Settings",
+    component: () => import(/* webpackChunkName: "platform" */ "@/views/app/Payments.vue"),
+    meta: {
+      icon: "uil uil-setting"
+    }
   }
 ];
 

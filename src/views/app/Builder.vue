@@ -149,7 +149,7 @@ export default {
     computed_childs() {
       return this.model_children;
     },
-    DevicePixelRatio_G: function () {
+    DevicePixelRatio_G() {
       let ratio = 1;
       // To account for zoom, change to use deviceXDPI instead of systemXDPI
       if (window.screen.systemXDPI !== undefined && window.screen.logicalXDPI !== undefined && window.screen.systemXDPI > window.screen.logicalXDPI) {
