@@ -1,6 +1,6 @@
 <template>
   <div id="landing" class="vh:h-1000 overflow-hidden overflow-y-scroll scrollbar-none">
-    <Navbar class="d-none" />
+    <Navbar />
     <Sidebar class="d-none" />
     <Header />
     <Content />
