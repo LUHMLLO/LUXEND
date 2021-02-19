@@ -1,11 +1,7 @@
 <template>
   <div id="landing" class="vh:h-1000 overflow-hidden overflow-y-scroll scrollbar-none">
-    <div class="w-100 d-block sm:d-none">
-      <Navbar />
-    </div>
-    <div class="w-100 d-none sm:d-block">
-      <Sidebar />
-    </div>
+    <Navbar class="d-none" />
+    <Sidebar class="d-none" />
     <Header />
     <Content />
     <Footer />

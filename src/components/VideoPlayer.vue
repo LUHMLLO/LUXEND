@@ -1,6 +1,6 @@
 <template>
   <div class="h-100 w-100 p-relative">
-    <div class="video-wrapper video-background video-overlay-3 video-blur-5">
+    <div class="video-wrapper video-background video-overlay-3 video-blur-4">
       <video loop autoplay muted :src="this.src" v-if="!isPlaying" class="w-100 h-100" />
     </div>
 
