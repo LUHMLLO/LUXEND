@@ -57,18 +57,18 @@ export default {
     return {
       misionvisionvalue: [
         {
-          icon: "uil-facebook",
+          icon: "uil-meeting-board",
           title: "NUESTRA MISION",
           content:
             "Abarcar el mercado con estándares de calidad, prevención y seguridad, proporcionando un servicio con tecnología de Vanguardia que nos permite exhibir que somos una empresa fielmente comprometida con la excelencia."
         },
         {
-          icon: "uil-facebook",
+          icon: "uil-telescope",
           title: "NUESTRA VISIÓN",
           content: "Ser reconocidos como empresa de gama alta líder en innovación y confianza en todo lo que hacemos."
         },
         {
-          icon: "uil-facebook",
+          icon: "uil-cell",
           title: "NUESTROS VALORES",
           content: "Nos distingue el trato genuino y personalizado, la delicadeza y el buen servicio con responsabilidad."
         }
