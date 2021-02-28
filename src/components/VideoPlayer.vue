@@ -1,11 +1,7 @@
 <template>
   <div class="h-100 w-100 p-relative">
-    <div class="video-wrapper video-background video-overlay-3 video-blur-4">
-      <video loop autoplay muted :src="this.src" v-if="!isPlaying" class="w-100 h-100" />
-    </div>
-
-    <div class="video-wrapper video-background" :class="!isPlaying ? 'video-overlay-3 video-blur-5' : ''">
-      <video loop autoplay :src="this.src" v-if="isPlaying" class="w-100 h-100" />
+    <div class="video-wrapper video-background" :class="!isPlaying ? 'video-overlay-5 video-blur-5' : ''">
+      <video :muted="!isPlaying" loop autoplay :src="this.src" class="w-100 h-100" />
     </div>
 
     <div class="p-absolute h-100 w-100 cursor-pointer d-flex flex-column content-center justify-center" @click="playVideo()" v-if="this.playable">
@@ -17,7 +13,7 @@
           eficiencia y precisión para asegurar la inversión de nuestros clientes.
         </p>
 
-        <button class="bg-transparent border mt-16" :class="[theme.font.button, theme.color.primary]">
+        <button class="bg-transparent border mt-16 round-0" :class="[theme.font.button, theme.color.primary]">
           <i class="uil uil-play m-auto"></i>
         </button>
       </div>
