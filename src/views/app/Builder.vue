@@ -5,7 +5,7 @@
         <canvas id="canvas" class="w-100 h-100"></canvas>
       </div>
     </div>
-    <div class="col-12 row" :class="[theme.primary_background, theme.primary_color]">
+    <div class="col-12 row" :class="[theme.background.primary, theme.color.primary]">
       <section class="col-12">
         <i class="uil uil-camera font-base mr-15 cursor-pointer" @pointerdown="screenshot"></i>
         <i class="uil uil-save font-base cursor-pointer" @pointerdown="save"></i>
@@ -14,7 +14,7 @@
         <h6 class="mb-5 font-sm mt-0">Opciones</h6>
         <div class="row w-100">
           <div class="col-6 flex-grow-1 flex-shrink-0 p-1 d-inline-flex content-center justify-center overflow-hidden" v-for="(child, index) in computed_childs" :key="index">
-            <button class="w-100" :class="[theme.button, theme.primary_color, theme.secondary_background, theme.radius]" @pointerdown="select_option(child)">
+            <button class="w-100" :class="[theme.font.button, theme.color.primary, theme.background.secondary, theme.radius]" @pointerdown="select_option(child)">
               {{ child.childID }}
             </button>
           </div>
@@ -24,7 +24,7 @@
         <h6 class="mb-5 font-sm mt-0">Texturas</h6>
         <div class="row w-100">
           <div class="col-3 flex-grow-1 p-1 d-inline-flex content-center justify-center overflow-hidden" v-for="(material, index) in material_textures" :key="index">
-            <button class="w-100" :class="[theme.button, theme.radius]" :style="[{ background: 'url(' + material.texture + ')' }]" @pointerdown="select_material_texture(material)" />
+            <button class="w-100" :class="[theme.font.button, theme.radius]" :style="[{ background: 'url(' + material.texture + ')' }]" @pointerdown="select_material_texture(material)" />
           </div>
         </div>
       </section>
@@ -32,7 +32,7 @@
         <h6 class="mb-5 font-sm mt-0">Colores</h6>
         <div class="row w-100">
           <div class="col-3 flex-grow-1 p-1 d-inline-flex content-center justify-center overflow-hidden" v-for="(material, index) in material_colors" :key="index">
-            <button class="w-100" :class="[theme.button, theme.radius]" :style="[{ background: '#' + material.color }]" @pointerdown="select_material_color(material)" />
+            <button class="w-100" :class="[theme.font.button, theme.radius]" :style="[{ background: '#' + material.color }]" @pointerdown="select_material_color(material)" />
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 <template>
   <div class="width-300 sm:w-100 p-16 p-fixed bottom right z-index-11 transition" :class="[ShowOrHide ? 'opacity-100' : 'opacity-0 hidden']">
     <!------------------------------------------------->
-    <div class="p-16 w-100 d-flex flex-column border" :class="[theme.secondary_background, theme.primary_color, theme.radius]">
+    <div class="p-16 w-100 d-flex flex-column border" :class="[theme.background.secondary, theme.color.primary, theme.radius]">
       <!------------------------------------------------->
       <div class="d-flex content-center justify-start">
         <div class="overflow-hidden width-25 sm:width-50 height-25 sm:height-50 mr-10" :class="[theme.radius]">
@@ -10,12 +10,12 @@
           </div>
         </div>
         <div class="d-block m-y-auto ml-0">
-          <label class="d-inline-block text-center p-x-10 p-y-5 font-xs sm:font-sm" :class="[theme.primary_color, theme.highlight_background, theme.radius]" v-html="Notification.Status" />
+          <label class="d-inline-block text-center p-x-10 p-y-5 font-xs sm:font-sm" :class="[theme.color.primary, theme.background.highlight, theme.radius]" v-html="Notification.Status" />
         </div>
       </div>
       <h6 class="mt-10 d-block font-md sm:font-base mb-0" v-html="Notification.Title"></h6>
       <p class="font-xs sm:font-sm mb-0" v-html="Notification.Description" />
-      <button :class="[theme.primary_button, theme.accent_background, theme.primary_color]" @pointerdown.stop="refreshApp">{{ Notification.Button }}</button>
+      <button :class="[theme.font.button, theme.background.accent, theme.color.primary]" @pointerdown.stop="refreshApp">{{ Notification.Button }}</button>
       <!------------------------------------------------->
     </div>
     <!------------------------------------------------->

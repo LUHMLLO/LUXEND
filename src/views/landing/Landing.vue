@@ -1,7 +1,5 @@
 <template>
   <div id="landing" class="vh:h-1000 overflow-hidden overflow-y-scroll scrollbar-none">
-    <Navbar />
-    <Sidebar class="d-none" />
     <Header />
     <Content />
     <Footer />
@@ -12,8 +10,6 @@
 export default {
   name: "Landing",
   components: {
-    Navbar: () => import("./components/Navbar"),
-    Sidebar: () => import("./components/Sidebar"),
     Header: () => import("./components/Header"),
     Content: () => import("./components/Content"),
     Footer: () => import("./components/Footer")

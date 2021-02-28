@@ -1,5 +1,5 @@
 <template>
-  <component id="app" :is="setLayout" :class="theme.primary_background">
+  <component id="app" :is="setLayout" :class="theme.background.primary">
     <router-view />
     <Notification />
   </component>
@@ -27,3 +27,26 @@ export default {
   }
 };
 </script>
+
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&display=swap");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Sans Pro", sans-serif !important;
+}
+p,
+a,
+ul,
+li,
+span,
+small,
+ol,
+button {
+  font-family: "Roboto", sans-serif !important;
+}
+</style>

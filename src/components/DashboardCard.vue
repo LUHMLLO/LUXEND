@@ -1,5 +1,5 @@
 <template>
-  <div class="p-16 d-inline-flex" :class="[theme.secondary_background, theme.radius]">
+  <div class="p-16 d-inline-flex" :class="[theme.background.secondary, theme.radius]">
     <div class="overflow-hidden" :class="[theme.radius, IMGwidth, IMGheight]">
       <div class="image-wrapper h-100">
         <img src="@/assets/demo.png" alt="" />
@@ -7,7 +7,7 @@
     </div>
     <div class="width-200 d-flex flex-column ml-16">
       <div class="d-block mt-0">
-        <label class="d-inline-block text-center p-x-10 p-y-5 font-xs" :class="[theme.primary_color, theme.highlight_background, theme.radius]">status</label>
+        <label class="d-inline-block text-center p-x-10 p-y-5 font-xs" :class="[theme.color.primary, theme.background.highlight, theme.radius]">status</label>
       </div>
       <h6 class="mt-10 d-block font-md" :class="[CardDescription ? 'mb-0' : 'mb-5']">kitchen model 06</h6>
       <p class="font-xs" v-if="CardDescription">

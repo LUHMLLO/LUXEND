@@ -1,6 +1,6 @@
 <template>
   <div class="width-220 p-16">
-    <div class="d-flex flex-column w-100 justify-center content-center p-16 height-120" :class="[theme.secondary_background, theme.radius]">
+    <div class="d-flex flex-column w-100 justify-center content-center p-16 height-120" :class="[theme.background.secondary, theme.radius]">
       <div class="d-flex w-100 justify-between content-center">
         <i class="uil uil-sim-card font-sm m-0"></i>
         <small class="font-md m-0">Visa</small>

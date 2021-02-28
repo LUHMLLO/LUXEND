@@ -10,7 +10,9 @@
 
     <div class="p-absolute h-100 w-100 cursor-pointer" @click="playVideo()" v-if="this.playable">
       <button class="video-button-play color-white-fade-8" :class="!isPlaying ? 'bg-white-fade-3 backdrop-blur-5' : 'bg-transparent border-transparent'">
-        <i :class="!isPlaying ? 'uil uil-play' : 'uil uil-pause color-transparent'"></i>
+        <span class="" v-if="!isPlaying">
+          <i class="uil uil-play m-auto"></i>
+        </span>
       </button>
     </div>
   </div>
