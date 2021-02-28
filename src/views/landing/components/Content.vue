@@ -11,7 +11,7 @@
     <!------------------------------------------------->
     <section class="p-y-50">
       <div class="row offset-x-16">
-        <div class="col-4" v-for="(col, index) in misionvisionvalue" :key="index">
+        <div class="col-4 sm:col-12" v-for="(col, index) in misionvisionvalue" :key="index">
           <div class="p-25 h-100" :class="[theme.background.secondary]">
             <i :class="[col.icon, theme.font.icon, theme.font.title]" />
             <h3 class="uppercase" :class="[theme.font.subtitle, theme.color.accent]" v-html="col.title" />
@@ -27,22 +27,20 @@
       </div>
     </section>
     <!------------------------------------------------->
-
-    <section class="p-y-50 text-center">
-      <h2 :class="[theme.font.title]">Embellece tus espacios</h2>
-      <p :class="[theme.font.subtitle]">Diseña tu cocina modular con nosotros</p>
-    </section>
     <section class="p-y-50">
+      <h3 class="uppercase" :class="[theme.font.subtitle]">Diseña tu cocina modular con nosotros</h3>
       <Slider class="wide">
         <div class="slide p-relative" v-for="(image, index) in 5" :key="index">
-          <div class="width-400 height-250 overflow-hidden" :class="[theme.radius, theme.background.highlight]">
-            <div class="image-wrapper h-100">
+          <div class="width-400 height-250 overflow-hidden p-relative" :class="[theme.background.highlight]">
+            <div class="image-wrapper image-background h-100">
               <img src="@/assets/ModularKitchen.jpg" alt="" />
             </div>
+            <div class="p-relative"></div>
           </div>
         </div>
       </Slider>
     </section>
+    <!------------------------------------------------->
   </div>
 </template>
 
