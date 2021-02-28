@@ -8,12 +8,19 @@
       <video loop autoplay :src="this.src" v-if="isPlaying" class="w-100 h-100" />
     </div>
 
-    <div class="p-absolute h-100 w-100 cursor-pointer" @click="playVideo()" v-if="this.playable">
-      <button class="video-button-play color-white-fade-8" :class="!isPlaying ? 'bg-white-fade-3 backdrop-blur-5' : 'bg-transparent border-transparent'">
-        <span class="" v-if="!isPlaying">
+    <div class="p-absolute h-100 w-100 cursor-pointer d-flex flex-column content-center justify-center" @click="playVideo()" v-if="this.playable">
+      <div class="container p-relative" v-if="!isPlaying">
+        <h2 :class="[theme.color.accent, theme.font.title]">SOMOS LUXEND</h2>
+
+        <p :class="[theme.font.content]">
+          Nos especializamos en crear y nos regimos por los más altos estándares internacionales para la prevención y seguridad estructural, así como de cada uno de los componentes, logrando calidad,
+          eficiencia y precisión para asegurar la inversión de nuestros clientes.
+        </p>
+
+        <button class="bg-transparent border mt-16" :class="[theme.font.button, theme.color.primary]">
           <i class="uil uil-play m-auto"></i>
-        </span>
-      </button>
+        </button>
+      </div>
     </div>
   </div>
 </template>
