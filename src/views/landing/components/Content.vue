@@ -29,11 +29,11 @@
     <!------------------------------------------------->
     <section class="p-y-50">
       <h3 class="uppercase" :class="[theme.font.subtitle]">Diseña tu cocina modular con nosotros</h3>
-      <Slider class="wide">
-        <div class="slide p-relative" v-for="(image, index) in 5" :key="index">
+      <Slider class="wide" style="scroll-behavior: smooth !important;">
+        <div class="slide p-relative" v-for="(slide, index) in sliderShowcase" :key="index">
           <div class="width-400 height-250 overflow-hidden p-relative" :class="[theme.background.highlight]">
             <div class="image-wrapper image-background h-100">
-              <img src="@/assets/ModularKitchen.jpg" alt="" />
+              <img :src="slide.url" alt="" />
             </div>
             <div class="p-relative"></div>
           </div>
@@ -69,6 +69,29 @@ export default {
           icon: "uil-cell",
           title: "NUESTROS VALORES",
           content: "Nos distingue el trato genuino y personalizado, la delicadeza y el buen servicio con responsabilidad."
+        }
+      ],
+      sliderShowcase: [
+        {
+          url: "https://images.unsplash.com/photo-1538944570562-2c9cb7857097"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1556911220-bff31c812dba"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1556908493-4ac5f138ab77"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1586798271449-9726e2172525"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1600684388091-627109f3cd60"
+        },
+        {
+          url: "https://images.unsplash.com/photo-1598546720078-8659863bc47d"
         }
       ]
     };
