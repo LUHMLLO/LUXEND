@@ -1,21 +1,50 @@
 <template>
   <div id="app" class="w-100 vh:h-1000 overflow-hidden d-flex justify-center flex-column" :class="[theme.background.primary, theme.color.primary]">
     <!----------------------------------------------------------------------------------------------->
-
-    <!--------------------->
-    <div class="d-flex overflow-hidden flex-grow-0 height-500">
+    <div class="d-flex overflow-hidden flex-grow-0 h-100">
       <!--------------------->
-      <div class="w-20 h-100 p-16">
-        <ul class="w-100 h-100 d-flex flex-column p-16" :class="[theme.background.faded]">
+      <div class="w-15 p-16 overflow-hidden overflow-y-scroll scrollbar-none">
+        <!--------------------->
+
+        <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
           <!--------------------->
           <li class="d-flex m-0 p-16" v-for="child in model_children" :key="child.index">
-            <span class="cursor-pointer d-block uppercase m-auto ml-0 w-100" @pointerdown="outlineToSelectedObject(child)">
+            <span class="cursor-pointer d-block uppercase m-auto ml-0 w-100" @pointerdown="setActiveOption(child)">
               {{ child.childID }}
             </span>
           </li>
-
           <!--------------------->
         </ul>
+
+        <!--------------------->
+
+        <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
+          <!--------------------->
+          <li class="d-flex m-0 p-16" v-for="Mtexture in material_textures" :key="Mtexture.index">
+            <span
+              class="cursor-pointer d-block uppercase m-auto ml-0 w-100 bg-red p-16"
+              :style="[{ background: 'url(' + Mtexture.texture + ')' }]"
+              @pointerdown="setTexture(Mtexture)"
+            ></span>
+          </li>
+          <!--------------------->
+        </ul>
+
+        <!--------------------->
+
+        <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
+          <!--------------------->
+          <li class="d-flex m-0 p-16" v-for="Mcolor in material_colors" :key="Mcolor.index">
+            <span
+              class="cursor-pointer d-block uppercase m-auto ml-0 w-100 bg-red p-16"
+              :style="[{ background: '#' + Mcolor.color }]"
+              @pointerdown="setColor(Mcolor)"
+            ></span>
+          </li>
+          <!--------------------->
+        </ul>
+
+        <!--------------------->
       </div>
       <!--------------------->
       <div class="w-80 h-100 p-16">
@@ -25,13 +54,6 @@
       </div>
       <!--------------------->
     </div>
-    <!--------------------->
-    <div class="d-flex overflow-hidden flex-grow-0 height-180">
-      <div class="w-100 h-100 p-16">
-        <div class="w-100 h-100" :class="[theme.background.faded]"></div>
-      </div>
-    </div>
-    <!--------------------->
     <!----------------------------------------------------------------------------------------------->
   </div>
 </template>
@@ -69,11 +91,60 @@ export default {
       obj: null,
       selectedObject: null,
       isZoomed: false,
-      texture: null,
-      material: null,
+      material_textures: [
+        {
+          texture: "/assets/textures/tim-mossholder-V6KKk5LCfI0-unsplash.jpg",
+          size: [3, 3, 3],
+          shininess: 0
+        },
+        {
+          texture: "/assets/textures/diego-passadori-e6frrz-kh-0-unsplash.jpg",
+          size: [3, 3, 3],
+          shininess: 0
+        },
+        {
+          texture: "/assets/textures/04.jpg",
+          size: [3, 3, 3],
+          shininess: 0
+        },
+        {
+          texture: "/assets/textures/05.jpg",
+          size: [3, 3, 3],
+          shininess: 0
+        },
+        {
+          texture: "/assets/textures/06.jpg",
+          size: [4, 4, 4],
+          shininess: 0
+        }
+      ],
+      material_colors: [
+        { color: "F44336" },
+        { color: "e91e63" },
+        { color: "9c27b0" },
+        { color: "673ab7" },
+        { color: "3f51b5" },
+        { color: "2196F3" },
+        { color: "03a9f4" },
+        { color: "00bcd4" },
+        { color: "009688" },
+        { color: "4CAF50" },
+        { color: "8bc34a" },
+        { color: "cddc39" },
+        { color: "ffeb3b" },
+        { color: "ffc107" },
+        { color: "ff9800" },
+        { color: "ff5722" },
+        { color: "795548" },
+        { color: "607d8b" },
+        { color: "9e9e9e" },
+        { color: "FFFFFF" },
+        { color: "000000" }
+      ],
       modelpath: null,
       model: null,
-      model_children: []
+      model_children: [],
+      activeOption: ""
     };
   },
   created() {
@@ -115,7 +186,7 @@ export default {
     },
     setScene: function () {
       this.scene = new THREE.Scene();
-      this.scene.background = new THREE.Color(0xe8f5e9);
+      this.scene.background = new THREE.Color("#c87c87");
     },
     setRender: function () {
       this.renderer = new THREE.WebGLRenderer({
@@ -141,16 +212,16 @@ export default {
     },
     setControls: function () {
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
-      this.controls.enableRotate = false;
-      this.controls.enableZoom = true;
+      this.controls.enableRotate = true;
+      this.controls.enableZoom = false;
       this.controls.enablePan = false;
       this.controls.enableDamping = true;
       //this.controls.dampingFactor = 0.5;
       //this.controls.rotateSpeed = 0.5;
-      //this.controls.minPolarAngle = Math.PI / 2;
-      //this.controls.maxPolarAngle = Math.PI / 2;
-      //this.controls.maxAzimuthAngle = Math.PI * 0.3;
-      //this.controls.minAzimuthAngle = -Math.PI * 0.3;
+      this.controls.minPolarAngle = Math.PI / 5;
+      this.controls.maxPolarAngle = Math.PI / 2;
+      this.controls.maxAzimuthAngle = Math.PI * 0.3;
+      this.controls.minAzimuthAngle = -Math.PI * 0.3;
       this.controls.minDistance = 1.6; //2
       this.controls.maxDistance = 3; //5
       //this.controls.mouseButtons = {RIGHT: THREE.MOUSE.LEFT, MIDDLE: THREE.MOUSE.MIDDLE, LEFT: THREE.MOUSE.RIGHT};
@@ -173,24 +244,29 @@ export default {
         this.scene,
         this.camera
       );
-      this.outlinePass.visibleEdgeColor.set(0xf8f8f8);
-      this.outlinePass.hiddenEdgeColor.set(0x030303);
+      this.outlinePass.visibleEdgeColor.set("#000000");
+      this.outlinePass.hiddenEdgeColor.set("#000000");
       this.outlinePass.edgeStrength = 5;
-      this.outlinePass.edgeGlow = 1;
-      this.outlinePass.edgeThickness = 1;
+      this.outlinePass.edgeGlow = 5;
+      this.outlinePass.edgeThickness = 5;
       this.outlinePass.pulsePeriod = 5;
+      this.outlinePass.renderToScreen = true;
       this.composer.addPass(this.outlinePass);
+
       const effectFXAA = new ShaderPass(FXAAShader);
       effectFXAA.uniforms["resolution"].value.x = 1 / (this.canvas_wrapper.clientWidth * this.DevicePixelRatio_G);
       effectFXAA.uniforms["resolution"].value.y = 1 / (this.canvas_wrapper.clientHeight * this.DevicePixelRatio_G);
       effectFXAA.renderToScreen = true;
       this.composer.addPass(effectFXAA);
+
       const smaapass = new SMAAPass(this.canvas_wrapper.clientWidth, this.canvas_wrapper.clientHeight);
       smaapass.renderToScreen = true;
       this.composer.addPass(smaapass);
+
       const bloomPass = new UnrealBloomPass(new THREE.Vector2(this.canvas_wrapper.clientWidth, this.canvas_wrapper.clientHeight), 0.1, 0, 0);
       bloomPass.renderToScreen = true;
       this.composer.addPass(bloomPass);
+
       this.composer.addPass(new ShaderPass(GammaCorrectionShader));
     },
     setModel: function () {
@@ -299,26 +375,76 @@ export default {
       this.camera.updateProjectionMatrix();
       this.camera.lookAt(center);
     },
-    outlineToSelectedObject: function (selectedObjectToOutline) {
-      this.outlinePass.selectedObjects = selectedObjectToOutline;
+
+    setActiveOption: function (child) {
+      this.activeOption = child.childID;
+      this.zoomToSelectedObject(child);
     },
+    setTexture: function (material) {
+      let new_texture = new THREE.TextureLoader().load(material.texture);
+      new_texture.repeat.set(material.size[0], material.size[1], material.size[2]);
+      new_texture.wrapS = THREE.RepeatWrapping;
+      new_texture.wrapT = THREE.RepeatWrapping;
+      new_texture.encoding = THREE.sRGBEncoding;
+
+      const new_material = new THREE.MeshPhongMaterial({
+        map: new_texture,
+        shininess: 10
+      });
+
+      this.model.traverse((o) => {
+        if (o.isMesh && o.nameID != null) {
+          //console.log(o);
+          if (o.nameID == this.activeOption) {
+            //console.log(o.material);
+            o.material = new_material;
+          }
+        }
+      });
+    },
+
+    setColor: function (material) {
+      const new_material = new THREE.MeshPhongMaterial({
+        color: parseInt("0x" + material.color),
+        shininess: 10
+      });
+      new_material.encoding = THREE.sRGBEncoding;
+
+      this.model.traverse((o) => {
+        if (o.isMesh && o.nameID != null) {
+          //console.log(o);
+          if (o.nameID == this.activeOption) {
+            //console.log(o.material);
+            o.material = new_material;
+          }
+        }
+      });
+    },
+
     zoomToSelectedObject: function (selectedObjectToZoomIn, fitOffset = 2) {
-      const box = new THREE.Box3();
-      box.expandByObject(selectedObjectToZoomIn);
-      const size = box.getSize(new THREE.Vector3());
-      const center = box.getCenter(new THREE.Vector3());
-      const maxSize = Math.max(size.x, size.y, size.z);
-      const fitHeightDistance = maxSize / (2 * Math.atan((Math.PI * this.camera.fov) / 360));
-      const fitWidthDistance = fitHeightDistance / this.camera.aspect;
-      const distance = fitOffset * Math.max(fitHeightDistance, fitWidthDistance);
-      const direction = this.controls.target.clone().sub(this.camera.position).normalize().multiplyScalar(distance);
-      this.controls.maxDistance = distance * 0;
-      this.controls.target.copy(center);
-      this.camera.near = distance / 100;
-      this.camera.far = distance * 100;
-      this.camera.updateProjectionMatrix();
-      this.camera.position.copy(this.controls.target).sub(direction);
-      this.controls.update();
+      this.model.traverse((o) => {
+        if (o.isMesh) {
+          if (o.name.includes(selectedObjectToZoomIn.childID)) {
+            this.outlinePass.selectObject = o;
+            const box = new THREE.Box3();
+            box.expandByObject(o);
+            const size = box.getSize(new THREE.Vector3());
+            const center = box.getCenter(new THREE.Vector3());
+            const maxSize = Math.max(size.x, size.y, size.z);
+            const fitHeightDistance = maxSize / (2 * Math.atan((Math.PI * this.camera.fov) / 360));
+            const fitWidthDistance = fitHeightDistance / this.camera.aspect;
+            const distance = fitOffset * Math.max(fitHeightDistance, fitWidthDistance);
+            const direction = this.controls.target.clone().sub(this.camera.position).normalize().multiplyScalar(distance);
+            this.controls.maxDistance = distance * 0;
+            this.controls.target.copy(center);
+            this.camera.near = distance / 100;
+            this.camera.far = distance * 100;
+            this.camera.updateProjectionMatrix();
+            this.camera.position.copy(this.controls.target).sub(direction);
+            this.controls.update();
+          }
+        }
+      });
     }
   }
 };
