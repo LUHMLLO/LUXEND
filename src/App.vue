@@ -3,13 +3,13 @@
     <!----------------------------------------------------------------------------------------------->
     <div class="d-flex overflow-hidden flex-grow-0 h-100">
       <!--------------------->
-      <div class="w-15 p-16 overflow-hidden overflow-y-scroll scrollbar-none">
+      <div class="vw:w-150 vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16 overflow-hidden overflow-y-scroll scrollbar-none">
         <!--------------------->
 
-        <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
+        <ul class="w-100 d-flex flex-column vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16 vw:mb-16" :class="[theme.background.faded]">
           <!--------------------->
-          <li class="d-flex m-0 p-16" v-for="child in model_children" :key="child.index">
-            <span class="cursor-pointer d-block uppercase m-auto ml-0 w-100" @pointerdown="setActiveOption(child)">
+          <li class="d-flex m-0 vw:pt-8 vw:pr-16 vw:pb-8 vw:pl-16" v-for="child in model_children" :key="child.index">
+            <span class="vw:font-base cursor-pointer d-block uppercase m-auto ml-0 w-100" @pointerdown="setActiveOption(child)">
               {{ child.childID }}
             </span>
           </li>
@@ -19,20 +19,20 @@
         <!--------------------->
       </div>
       <!--------------------->
-      <div class="flex-grow-1 h-100 p-16">
-        <div id="customizer-wrapper" class="w-100 h-100" :class="[theme.background.faded]">
+      <div class="vw:w-700 vw:h-480 vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16 overflow-hidden">
+        <div id="customizer-wrapper" class="w-100 h-100 overflow-hidden" :class="[theme.background.faded]">
           <canvas id="customizer-canvas" class="w-100 h-100"></canvas>
         </div>
       </div>
       <!--------------------->
-      <div class="w-15 p-16 overflow-hidden overflow-y-scroll scrollbar-none">
+      <div class="vw:w-150 vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16 overflow-hidden overflow-y-scroll scrollbar-none">
         <!--------------------->
 
-        <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
+        <ul class="w-100 d-flex flex-column vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16 mb-16" :class="[theme.background.faded]">
           <!--------------------->
-          <li class="d-flex m-0 p-16" v-for="Mtexture in material_textures" :key="Mtexture.index">
+          <li class="d-flex m-0 vw:pt-8 vw:pr-8 vw:pb-8 vw:pl-8" v-for="Mtexture in material_textures" :key="Mtexture.index">
             <span
-              class="cursor-pointer d-block uppercase m-auto ml-0 w-100 bg-red p-16"
+              class="cursor-pointer d-block uppercase m-auto ml-0 w-100 bg-red vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16"
               :style="[{ background: 'url(' + Mtexture.texture + ')' }]"
               @pointerdown="setTexture(Mtexture)"
             ></span>
@@ -42,11 +42,11 @@
 
         <!--------------------->
 
-        <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
+        <ul class="w-100 d-flex flex-column vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16 mb-16" :class="[theme.background.faded]">
           <!--------------------->
-          <li class="d-flex m-0 p-16" v-for="Mcolor in material_colors" :key="Mcolor.index">
+          <li class="d-flex m-0 vw:pt-8 vw:pr-8 vw:pb-8 vw:pl-8" v-for="Mcolor in material_colors" :key="Mcolor.index">
             <span
-              class="cursor-pointer d-block uppercase m-auto ml-0 w-100 bg-red p-16"
+              class="cursor-pointer d-block uppercase m-auto ml-0 w-100 bg-red vw:pt-16 vw:pr-16 vw:pb-16 vw:pl-16"
               :style="[{ background: '#' + Mcolor.color }]"
               @pointerdown="setColor(Mcolor)"
             ></span>
@@ -350,6 +350,8 @@ export default {
       this.controls.update();
     },
     onWindowsResize: function () {
+      console.log(window.innerWidth);
+      this.DevicePixelRatio_G;
       this.camera.aspect = this.canvas_wrapper.clientWidth / this.canvas_wrapper.clientHeight;
       this.camera.updateProjectionMatrix();
       this.renderer.setSize(this.canvas_wrapper.clientWidth, this.canvas_wrapper.clientHeight);
