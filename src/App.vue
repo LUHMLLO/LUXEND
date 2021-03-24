@@ -388,7 +388,7 @@ export default {
 
     setActiveOption: function (child) {
       this.activeOption = child.childID;
-      this.zoomToSelectedObject(child);
+      //this.zoomToSelectedObject(child);
     },
     setTexture: function (material) {
       let new_texture = new THREE.TextureLoader().load(material.texture);
@@ -435,7 +435,7 @@ export default {
       this.model.traverse((o) => {
         if (o.isMesh) {
           if (o.name.includes(selectedObjectToZoomIn.childID)) {
-            this.outlinePass.selectObject = o;
+            this.outlinePass.selectedObjects = o;
             const box = new THREE.Box3();
             box.expandByObject(o);
             const size = box.getSize(new THREE.Vector3());
@@ -445,6 +445,7 @@ export default {
             const fitWidthDistance = fitHeightDistance / this.camera.aspect;
             const distance = fitOffset * Math.max(fitHeightDistance, fitWidthDistance);
             const direction = this.controls.target.clone().sub(this.camera.position).normalize().multiplyScalar(distance);
+            //this.model.rotation.y = Math.atan2( ( this.camera.position.x - this.model.position.x ), ( this.camera.position.z - this.model.position.z ) );
             this.controls.maxDistance = distance * 0;
             this.controls.target.copy(center);
             this.camera.near = distance / 100;
