@@ -6,7 +6,16 @@
     <div class="d-flex overflow-hidden flex-grow-0 height-500">
       <!--------------------->
       <div class="w-20 h-100 p-16">
-        <div class="w-100 h-100" :class="[theme.background.faded]"></div>
+        <ul class="w-100 h-100 d-flex flex-column p-16" :class="[theme.background.faded]">
+          <!--------------------->
+          <li class="d-flex m-0 p-16" v-for="child in model_children" :key="child.index">
+            <span class="cursor-pointer d-block uppercase m-auto ml-0 w-100" @pointerdown="outlineToSelectedObject(child)">
+              {{ child.childID }}
+            </span>
+          </li>
+
+          <!--------------------->
+        </ul>
       </div>
       <!--------------------->
       <div class="w-80 h-100 p-16">
@@ -62,6 +71,7 @@ export default {
       isZoomed: false,
       texture: null,
       material: null,
+      modelpath: null,
       model: null,
       model_children: []
     };
@@ -70,7 +80,8 @@ export default {
     window.addEventListener("resize", this.onWindowsResize);
   },
   async mounted() {
-    await this.createInstance();
+    await this.getModelsFromWordpress();
+    this.createInstance();
   },
   destroyed() {
     window.removeEventListener("resize", this.onWindowsResize);
@@ -89,6 +100,15 @@ export default {
     }
   },
   methods: {
+    getModelsFromWordpress: async function () {
+      await this.$axios
+        .get("http://www.luxend.net/wp-json/wp/v2/modelos")
+        .then((modelo) => {
+          console.log(modelo.data[0].acf.onlyfortesturl);
+          this.modelpath = modelo.data[0].acf.onlyfortesturl;
+        })
+        .catch(console.log);
+    },
     setCanvas: function () {
       this.canvas_wrapper = document.querySelector("#customizer-wrapper");
       this.canvas = document.querySelector("#customizer-canvas");
@@ -122,17 +142,17 @@ export default {
     setControls: function () {
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
       this.controls.enableRotate = false;
-      this.controls.enableZoom = false;
+      this.controls.enableZoom = true;
       this.controls.enablePan = false;
-      this.controls.enableDamping = false;
-      this.controls.dampingFactor = 0.5;
+      this.controls.enableDamping = true;
+      //this.controls.dampingFactor = 0.5;
       //this.controls.rotateSpeed = 0.5;
-      this.controls.minPolarAngle = Math.PI / 2;
-      this.controls.maxPolarAngle = Math.PI / 2;
-      this.controls.maxAzimuthAngle = Math.PI * 0.3;
-      this.controls.minAzimuthAngle = -Math.PI * 0.3;
-      this.controls.minDistance = 2; //2
-      this.controls.maxDistance = 5.5; //5
+      //this.controls.minPolarAngle = Math.PI / 2;
+      //this.controls.maxPolarAngle = Math.PI / 2;
+      //this.controls.maxAzimuthAngle = Math.PI * 0.3;
+      //this.controls.minAzimuthAngle = -Math.PI * 0.3;
+      this.controls.minDistance = 1.6; //2
+      this.controls.maxDistance = 3; //5
       //this.controls.mouseButtons = {RIGHT: THREE.MOUSE.LEFT, MIDDLE: THREE.MOUSE.MIDDLE, LEFT: THREE.MOUSE.RIGHT};
     },
     setLights: function () {
@@ -176,9 +196,8 @@ export default {
     setModel: function () {
       let self = this;
       const loader = new GLTFLoader();
-      const modelpath = "/assets/models/testingmodel.glb";
       loader.load(
-        modelpath,
+        this.modelpath,
         function (obj) {
           self.model = obj.scene;
           self.centerModel(self.model);
@@ -253,15 +272,15 @@ export default {
       this.composer.setSize(this.canvas_wrapper.clientWidth, this.canvas_wrapper.clientHeight);
     },
     createInstance: async function () {
-      await this.setCanvas(),
-        await this.setScene(),
-        await this.setRender(),
-        await this.setCamera(),
-        await this.setControls(),
-        await this.setLights(),
-        await this.setPostProcessing(),
-        await this.setModel(),
-        this.animate();
+      await this.setCanvas();
+      await this.setScene();
+      await this.setRender();
+      await this.setCamera();
+      await this.setControls();
+      await this.setLights();
+      await this.setPostProcessing();
+      await this.setModel();
+      this.animate();
     },
     centerModel: function (model) {
       model.updateMatrixWorld();
@@ -272,10 +291,34 @@ export default {
       model.position.x += model.position.x - center.x;
       model.position.y += model.position.y - center.y;
       model.position.z += model.position.z - center.z;
+      model.rotation.y = Math.PI;
+      this.camera.position.copy(center);
+      this.camera.position.x += 0;
       this.camera.position.y += size / 10;
       this.camera.position.z += size;
       this.camera.updateProjectionMatrix();
       this.camera.lookAt(center);
+    },
+    outlineToSelectedObject: function (selectedObjectToOutline) {
+      this.outlinePass.selectedObjects = selectedObjectToOutline;
+    },
+    zoomToSelectedObject: function (selectedObjectToZoomIn, fitOffset = 2) {
+      const box = new THREE.Box3();
+      box.expandByObject(selectedObjectToZoomIn);
+      const size = box.getSize(new THREE.Vector3());
+      const center = box.getCenter(new THREE.Vector3());
+      const maxSize = Math.max(size.x, size.y, size.z);
+      const fitHeightDistance = maxSize / (2 * Math.atan((Math.PI * this.camera.fov) / 360));
+      const fitWidthDistance = fitHeightDistance / this.camera.aspect;
+      const distance = fitOffset * Math.max(fitHeightDistance, fitWidthDistance);
+      const direction = this.controls.target.clone().sub(this.camera.position).normalize().multiplyScalar(distance);
+      this.controls.maxDistance = distance * 0;
+      this.controls.target.copy(center);
+      this.camera.near = distance / 100;
+      this.camera.far = distance * 100;
+      this.camera.updateProjectionMatrix();
+      this.camera.position.copy(this.controls.target).sub(direction);
+      this.controls.update();
     }
   }
 };

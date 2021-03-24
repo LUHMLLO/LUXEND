@@ -1,4 +1,63 @@
 
+<template>
+  <div class="container bg-dark-powder color-baby-powder vh:h-1000 overflow-hidden border-4 border-solid border-green">
+    <div id="canvas_wrapper" class="wide height-500 overflow-hidden">
+      <canvas id="canvas" class="w-100 h-100 overflow-hidden"></canvas>
+    </div>
+
+    <div class="w-100 row">
+      <!--------------------------------------------------------------------------------------------------------->
+      <section class="col-12">
+        <i class="uil uil-camera font-base mr-15 cursor-pointer" @pointerdown="screenshot"></i>
+        <i class="uil uil-save font-base cursor-pointer" @pointerdown="save"></i>
+      </section>
+      <!--------------------------------------------------------------------------------------------------------->
+      <section class="col-4 sm:col-12">
+        <h6 class="mb-5 font-sm mt-0">Opciones</h6>
+        <div class="row w-100">
+          <div
+            class="col-6 flex-grow-1 flex-shrink-0 p-1 d-inline-flex content-center justify-center overflow-hidden"
+            v-for="(child, index) in computed_childs"
+            :key="index"
+          >
+            <button class="w-100" @pointerdown="select_option(child)">
+              {{ child.childID }}
+            </button>
+          </div>
+        </div>
+      </section>
+      <!--------------------------------------------------------------------------------------------------------->
+      <section class="col-4 sm:col-12">
+        <h6 class="mb-5 font-sm mt-0">Texturas</h6>
+        <div class="row w-100">
+          <div
+            class="col-3 flex-grow-1 p-1 d-inline-flex content-center justify-center overflow-hidden"
+            v-for="(material, index) in material_textures"
+            :key="index"
+          >
+            <button class="w-100" :style="[{ background: 'url(' + material.texture + ')' }]" @pointerdown="select_material_texture(material)" />
+          </div>
+        </div>
+      </section>
+      <!--------------------------------------------------------------------------------------------------------->
+      <section class="col-4 sm:col-12">
+        <h6 class="mb-5 font-sm mt-0">Colores</h6>
+        <div class="row w-100">
+          <div
+            class="col-3 flex-grow-1 p-1 d-inline-flex content-center justify-center overflow-hidden"
+            v-for="(material, index) in material_colors"
+            :key="index"
+          >
+            <button class="w-100" :style="[{ background: '#' + material.color }]" @pointerdown="select_material_color(material)" />
+          </div>
+        </div>
+      </section>
+      <!--------------------------------------------------------------------------------------------------------->
+    </div>
+    <!--------------------------------------------------------------------------------------------------------->
+  </div>
+</template>
+
 <script>
 import * as THREE from "three";
 import { HalfFloatType } from "three";
