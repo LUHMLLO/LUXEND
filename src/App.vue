@@ -17,6 +17,16 @@
         </ul>
 
         <!--------------------->
+      </div>
+      <!--------------------->
+      <div class="flex-grow-1 h-100 p-16">
+        <div id="customizer-wrapper" class="w-100 h-100" :class="[theme.background.faded]">
+          <canvas id="customizer-canvas" class="w-100 h-100"></canvas>
+        </div>
+      </div>
+      <!--------------------->
+      <div class="w-15 p-16 overflow-hidden overflow-y-scroll scrollbar-none">
+        <!--------------------->
 
         <ul class="w-100 d-flex flex-column p-16 mb-16" :class="[theme.background.faded]">
           <!--------------------->
@@ -45,12 +55,6 @@
         </ul>
 
         <!--------------------->
-      </div>
-      <!--------------------->
-      <div class="w-80 h-100 p-16">
-        <div id="customizer-wrapper" class="w-100 h-100" :class="[theme.background.faded]">
-          <canvas id="customizer-canvas" class="w-100 h-100"></canvas>
-        </div>
       </div>
       <!--------------------->
     </div>
@@ -172,13 +176,17 @@ export default {
   },
   methods: {
     getModelsFromWordpress: async function () {
-      await this.$axios
-        .get("http://www.luxend.net/wp-json/wp/v2/modelos")
+      await this.$axios({
+        method: "GET",
+        url: "http://www.luxend.net/wp-json/wp/v2/modelos"
+      })
         .then((modelo) => {
           console.log(modelo.data[0].acf.onlyfortesturl);
           this.modelpath = modelo.data[0].acf.onlyfortesturl;
         })
-        .catch(console.log);
+        .catch((error) => {
+          console.error("$http:ajax:catch", error);
+        });
     },
     setCanvas: function () {
       this.canvas_wrapper = document.querySelector("#customizer-wrapper");
